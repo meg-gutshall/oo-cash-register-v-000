@@ -18,7 +18,7 @@ class CashRegister
   # adds the title of the item into the @items array however many times needed
   # to match the quantity value.
   def add_item(title, price, quantity = 1)
-    @total = @total + price * quantity
+    @total += price * quantity
     @last_transaction = price * quantity
     quantity.times {@items << title}
   end
@@ -31,7 +31,6 @@ class CashRegister
       @total = @total * (100.0 - discount) / 100.0
       return "After the discount, the total comes to $#{@total.to_i}."
     else
-      @total
       "There is no discount to apply."
     end
   end
@@ -39,7 +38,7 @@ class CashRegister
   # This method voids the previous transaction by using the @last_transaction
   # object tracked in the #add_item method.
   def void_last_transaction
-    @total = @total - @last_transaction
+    @total -= @last_transaction
   end
 
 end
