@@ -28,7 +28,7 @@ class CashRegister
   # discounted or non-discounted price.
   def apply_discount
     if discount != 0
-      @total = @total * (100.0 - discount) / 100.0
+      @total *= (100.0 - discount) / 100.0
       return "After the discount, the total comes to $#{@total.to_i}."
     else
       "There is no discount to apply."
