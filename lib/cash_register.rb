@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class CashRegister
   # Made accessors for methods used, not objects
   attr_accessor :total, :discount, :items, :last_transaction
@@ -31,14 +32,44 @@ class CashRegister
       @total *= (100.0 - discount) / 100.0
       return "After the discount, the total comes to $#{@total.to_i}."
     else
+=======
+
+class CashRegister
+  attr_accessor :total, :discount, :title, :price, :quantity, :items
+
+  def initialize(discount = 0)
+    @total = 0
+    @discount = discount
+  end
+
+  def total
+    @total
+  end
+
+  def add_item(title, price, quantity = 1)
+    @total = @total + price * quantity
+  end
+
+  def apply_discount
+    if discount != 0
+      @total = @total * (100.0 - discount) / 100.0
+      return "After the discount, the total comes to $#{@total.to_i}."
+    else
+      @total
+>>>>>>> bab055350d60971ab6f12c41e3767f9cba968552
       "There is no discount to apply."
     end
   end
 
+<<<<<<< HEAD
   # This method voids the previous transaction by using the @last_transaction
   # object tracked in the #add_item method.
   def void_last_transaction
     @total -= @last_transaction
+=======
+  def items
+    @items
+>>>>>>> bab055350d60971ab6f12c41e3767f9cba968552
   end
 
 end
